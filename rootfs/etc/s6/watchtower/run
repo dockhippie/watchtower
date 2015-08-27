@@ -1,0 +1,60 @@
+#!/bin/bash
+
+if [ -f ./setup ]
+then
+  source ./setup
+fi
+
+STARTCMD="/usr/bin/watchtower"
+
+if [[ "${WATCHTOWER_DEBUG}" == "true" || "${WATCHTOWER_DEBUG}" == "1" ]]
+then
+  STARTCMD="${STARTCMD} -debug"
+fi
+
+if [[ "${WATCHTOWER_NO_PULL}" == "true" || "${WATCHTOWER_NO_PULL}" == "1" ]]
+then
+  STARTCMD="${STARTCMD} -no-pull"
+fi
+
+if [[ "${WATCHTOWER_CLEANUP}" == "true" || "${WATCHTOWER_CLEANUP}" == "1" ]]
+then
+  STARTCMD="${STARTCMD} -cleanup"
+fi
+
+if [[ "${WATCHTOWER_TLS}" == "true" || "${WATCHTOWER_TLS}" == "1" ]]
+then
+  STARTCMD="${STARTCMD} -tls"
+fi
+
+if [[ "${WATCHTOWER_TLS_VERIFY}" == "true" || "${WATCHTOWER_TLS_VERIFY}" == "1" ]]
+then
+  STARTCMD="${STARTCMD} -tlsverify"
+fi
+
+if [ -n "${WATCHTOWER_HOST}" ]
+then
+  STARTCMD="${STARTCMD} -host=${WATCHTOWER_HOST}"
+fi
+
+if [ -n "${WATCHTOWER_INTERVAL}" ]
+then
+  STARTCMD="${STARTCMD} -interval=${WATCHTOWER_INTERVAL}"
+fi
+
+if [ -n "${WATCHTOWER_TLS_CA}" ]
+then
+  STARTCMD="${STARTCMD} -tlscacert=${WATCHTOWER_TLS_CA}"
+fi
+
+if [ -n "${WATCHTOWER_TLS_CERT}" ]
+then
+  STARTCMD="${STARTCMD} -tlscert=${WATCHTOWER_TLS_CERT}"
+fi
+
+if [ -n "${WATCHTOWER_TLS_KEY}" ]
+then
+  STARTCMD="${STARTCMD} -tlskey=${WATCHTOWER_TLS_KEY}"
+fi
+
+exec ${STARTCMD}
