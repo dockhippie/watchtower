@@ -11,7 +11,7 @@ These are docker images for [Watchtower](https://github.com/CenturyLinkLabs/watc
 ```bash
 docker run -ti \
   --name watchtower \
-  --volume /var/run/docker.sock:/var/run/docker.sock
+  --volume /var/run/docker.sock:/var/run/docker.sock \
   webhippie/watchtower:latest
 ```
 
