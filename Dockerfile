@@ -10,18 +10,17 @@ ENV GOPATH /usr:/usr/src/${WATCHTOWER_PATH}/Godeps/_workspace
 RUN apk update && \
   apk add \
     build-base \
-    git \
-    go@community && \
+    go@community \
+    git && \
   git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/src/${WATCHTOWER_PATH} && \
   cd /usr/src/${WATCHTOWER_PATH} && \
   go get -u github.com/tools/godep && \
   godep go install ${WATCHTOWER_PATH} && \
-  apk del build-base git go && \
+  apk del build-base go git && \
   rm -rf /var/cache/apk/* && \
   rm -r \
     /usr/src/* \
     /usr/pkg/* \
-    /usr/lib/go \
     /usr/bin/godep
 
 ADD rootfs /
