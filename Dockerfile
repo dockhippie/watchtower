@@ -11,15 +11,20 @@ RUN apk update && \
   apk add \
     build-base \
     git \
-    go && \
-  git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} ${GOPATH}/src/${WATCHTOWER_PATH} && \
-  go get ${WATCHTOWER_PATH}/... && \
-  go install ${WATCHTOWER_PATH} && \
+    go@community && \
+  git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/src/${WATCHTOWER_PATH} && \
+  cd /usr/src/${WATCHTOWER_PATH} && \
+  go get -u github.com/tools/godep && \
+  godep go install ${WATCHTOWER_PATH} && \
   apk del build-base git go && \
   rm -rf /var/cache/apk/* && \
-  rm -r /usr/src/*
+  rm -r \
+    /usr/src/* \
+    /usr/pkg/* \
+    /usr/lib/go \
+    /usr/bin/godep
 
 ADD rootfs /
 
 WORKDIR /root
-CMD ["/usr/bin/s6-svscan", "/etc/s6"]
+CMD ["/bin/s6-svscan", "/etc/s6"]
