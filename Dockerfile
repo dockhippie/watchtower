@@ -10,7 +10,7 @@ ENV GOPATH /usr:/usr/src/${WATCHTOWER_PATH}/Godeps/_workspace
 RUN apk update && \
   apk add \
     build-base \
-    go@community \
+    go \
     git && \
   git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/src/${WATCHTOWER_PATH} && \
   cd /usr/src/${WATCHTOWER_PATH} && \
