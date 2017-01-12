@@ -1,26 +1,23 @@
 # Watchtower
 
-[![](https://badge.imagelayers.io/webhippie/watchtower:latest.svg)](https://imagelayers.io/?images=webhippie/watchtower:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/webhippie/watchtower.svg)](https://microbadger.com/images/webhippie/watchtower "Get your own image badge on microbadger.com")
 
-These are docker images for [Watchtower](https://github.com/CenturyLinkLabs/watchtower) running on an
-[Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
-
-
-## Usage
-
-```bash
-docker run -ti \
-  --name watchtower \
-  --volume /var/run/docker.sock:/var/run/docker.sock \
-  webhippie/watchtower:latest
-```
+These are docker images for [Watchtower](https://github.com/CenturyLinkLabs/watchtower) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
 
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/watchtower/tree/master)
-  available as ```webhippie/watchtower:latest``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/watchtower/)
+* [latest](https://github.com/dockhippie/watchtower/tree/master) available as ```webhippie/watchtower:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/watchtower/)
+
+
+## Volumes
+
+* None
+
+
+## Ports
+
+* None
 
 
 ## Available environment variables
@@ -42,14 +39,7 @@ ENV WATCHTOWER_TLS_KEY # As string or filename
 ## Inherited environment variables
 
 ```bash
-ENV LOGSTASH_ENABLED false
-ENV LOGSTASH_HOST logstash
-ENV LOGSTASH_PORT 5043
-ENV LOGSTASH_CA /etc/ssl/logstash/certs/ca.pem # As string or filename
-ENV LOGSTASH_CERT /etc/ssl/logstash/certs/cert.pem # As string or filename
-ENV LOGSTASH_KEY /etc/ssl/logstash/private/cert.pem # As string or filename
-ENV LOGSTASH_TIMEOUT 15
-ENV LOGSTASH_OPTS
+ENV CRON_ENABLED false
 ```
 
 
@@ -71,5 +61,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
 ```
