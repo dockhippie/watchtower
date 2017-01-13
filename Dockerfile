@@ -1,29 +1,22 @@
 FROM webhippie/alpine:latest
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
 
-ENV WATCHTOWER_PATH github.com/CenturyLinkLabs/watchtower
-ENV WATCHTOWER_REPO https://${WATCHTOWER_PATH}.git
-ENV WATCHTOWER_BRANCH master
-
-ENV GOPATH /usr:/usr/src/${WATCHTOWER_PATH}/Godeps/_workspace
-
-RUN apk update && \
-  apk add \
-    build-base \
-    go \
-    git && \
-  git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/src/${WATCHTOWER_PATH} && \
-  cd /usr/src/${WATCHTOWER_PATH} && \
-  go get -u github.com/tools/godep && \
-  godep go install ${WATCHTOWER_PATH} && \
-  apk del build-base go git && \
-  rm -rf /var/cache/apk/* && \
-  rm -r \
-    /usr/src/* \
-    /usr/pkg/* \
-    /usr/bin/godep
-
-ADD rootfs /
-
 WORKDIR /root
 CMD ["/bin/s6-svscan", "/etc/s6"]
+
+ENV WATCHTOWER_PATH github.com/CenturyLinkLabs/watchtower
+ENV WATCHTOWER_REPO https://github.com/v2tec/watchtower.git
+ENV WATCHTOWER_BRANCH master
+
+ENV GOPATH /usr/local
+
+RUN apk add --no-cache --virtual build-dependencies build-base go git && \
+  git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/local/src/${WATCHTOWER_PATH} && \
+  cd /usr/local/src/${WATCHTOWER_PATH} && \
+  go get ./... && \
+  go install ${WATCHTOWER_PATH}... && \
+  cp /usr/local/bin/watchtower /usr/bin/ && \
+  apk del build-dependencies && \
+  rm -rf /usr/local/*
+
+ADD rootfs /

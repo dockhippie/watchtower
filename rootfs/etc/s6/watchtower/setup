@@ -1,9 +1,5 @@
 #!/bin/bash
 
-declare -x WATCHTOWER_TLS_CA
-declare -x WATCHTOWER_TLS_KEY
-declare -x WATCHTOWER_TLS_CERT
-
 if [ -n "${WATCHTOWER_TLS_CA}" ]
 then
   if [ ! -f "${WATCHTOWER_TLS_CA}" ]
@@ -17,7 +13,7 @@ if [ -n "${WATCHTOWER_TLS_KEY}" ]
 then
   if [ ! -f "${WATCHTOWER_TLS_KEY}" ]
   then
-    echo -e "${WATCHTOWER_TLS_KEY}" >| /tmp/etcd.crt
+    echo -e "${WATCHTOWER_TLS_KEY}" >| /tmp/docker.crt
     WATCHTOWER_TLS_KEY="/tmp/docker.crt"
   fi
 fi
@@ -26,7 +22,7 @@ if [ -n "${WATCHTOWER_TLS_CERT}" ]
 then
   if [ ! -f "${WATCHTOWER_TLS_CERT}" ]
   then
-    echo -e "${WATCHTOWER_TLS_CERT}" >| /tmp/etcd.key
+    echo -e "${WATCHTOWER_TLS_CERT}" >| /tmp/docker.key
     WATCHTOWER_TLS_CERT="/tmp/docker.key"
   fi
 fi
