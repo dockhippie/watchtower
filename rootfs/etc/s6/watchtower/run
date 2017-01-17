@@ -18,4 +18,4 @@ STARTCMD="/usr/bin/watchtower"
 [[ -n "${WATCHTOWER_TLS_CERT}" ]] && STARTCMD="${STARTCMD} -tlscert=${WATCHTOWER_TLS_CERT}"
 [[ -n "${WATCHTOWER_TLS_KEY}" ]] && STARTCMD="${STARTCMD} -tlskey=${WATCHTOWER_TLS_KEY}"
 
-exec ${STARTCMD}
+exec ${STARTCMD} ${CMD_ARGUMENTS}
