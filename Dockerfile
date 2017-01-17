@@ -11,7 +11,7 @@ ENV WATCHTOWER_BRANCH master
 ENV GOPATH /usr/local
 
 RUN apk add --no-cache --virtual build-dependencies build-base go git && \
-  git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/local/src/${WATCHTOWER_PATH} && \
+  git clone --depth=1 -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/local/src/${WATCHTOWER_PATH} && \
   cd /usr/local/src/${WATCHTOWER_PATH} && \
   go get ./... && \
   go install ${WATCHTOWER_PATH}... && \
