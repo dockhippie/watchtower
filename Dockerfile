@@ -15,7 +15,7 @@ RUN apk add --no-cache --virtual build-dependencies build-base go git && \
   git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /usr/local/src/${WATCHTOWER_PATH} && \
   cd /usr/local/src/${WATCHTOWER_PATH} && \
   glide install --skip-test && \
-  go install ${WATCHTOWER_PATH}... && \
+  go install ${WATCHTOWER_PATH} && \
   cp /usr/local/bin/watchtower /usr/bin/ && \
   apk del build-dependencies && \
   rm -rf /usr/local/*
