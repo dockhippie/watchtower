@@ -2,7 +2,7 @@
 
 [![](https://images.microbadger.com/badges/image/webhippie/watchtower.svg)](https://microbadger.com/images/webhippie/watchtower "Get your own image badge on microbadger.com")
 
-These are docker images for [Watchtower](https://github.com/CenturyLinkLabs/watchtower) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
+These are docker images for [Watchtower](https://github.com/v2tec/watchtower) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
 
 
 ## Versions
@@ -27,12 +27,11 @@ ENV WATCHTOWER_HOST unix:///var/run/docker.sock
 ENV WATCHTOWER_INTERVAL 300
 ENV WATCHTOWER_DEBUG false
 ENV WATCHTOWER_NO_PULL false
+ENV WATCHTOWER_NO_RESTART false
 ENV WATCHTOWER_CLEANUP false
-ENV WATCHTOWER_TLS false
 ENV WATCHTOWER_TLS_VERIFY false
-ENV WATCHTOWER_TLS_CA # As string or filename
-ENV WATCHTOWER_TLS_CERT # As string or filename
-ENV WATCHTOWER_TLS_KEY # As string or filename
+ENV WATCHTOWER_APIVERSION
+ENV WATCHTOWER_OPTS
 ```
 
 
@@ -61,5 +60,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```
