@@ -1,4 +1,4 @@
-FROM webhippie/golang:1.10-arm32v6 as build
+FROM webhippie/golang:1.10-arm32v6@sha256:feec5e3ccfc25b59881a34f9e6819d3dfb91031e5ccbe8317b96b66a603771cc as build
 
 ENV WATCHTOWER_PATH github.com/v2tec/watchtower
 ENV WATCHTOWER_REPO https://${WATCHTOWER_PATH}.git
@@ -10,7 +10,7 @@ RUN git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /srv/app/src/${WATCHTOW
   glide install --skip-test && \
   go install
 
-FROM webhippie/alpine:latest-arm32v6
+FROM webhippie/alpine:latest-arm32v6@sha256:e974574e5a59c39564f075610a5e157c9053ed12d809d1c20d724687b2975311
 
 LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.name="Watchtower" \
