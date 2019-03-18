@@ -1,5 +1,6 @@
 # Watchtower
 
+[![Build Status](https://cloud.drone.io/api/badges/dockhippie/watchtower/status.svg)](https://cloud.drone.io/dockhippie/watchtower)
 [![](https://images.microbadger.com/badges/image/webhippie/watchtower.svg)](https://microbadger.com/images/webhippie/watchtower "Get your own image badge on microbadger.com")
 
 These are docker images for [Watchtower](https://github.com/v2tec/watchtower) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
@@ -7,7 +8,7 @@ These are docker images for [Watchtower](https://github.com/v2tec/watchtower) ru
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/watchtower/tree/master) available as ```webhippie/watchtower:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/watchtower/)
+* [latest](./latest) available as `webhippie/watchtower:latest`
 
 
 ## Volumes
@@ -38,9 +39,7 @@ ENV DOCKER_API_VERSION 1.24
 
 ## Inherited environment variables
 
-```bash
-ENV CRON_ENABLED false
-```
+* [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
 
 
 ## Contributing
