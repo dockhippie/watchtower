@@ -4,10 +4,8 @@ ENV WATCHTOWER_PATH github.com/v2tec/watchtower
 ENV WATCHTOWER_REPO https://${WATCHTOWER_PATH}.git
 ENV WATCHTOWER_BRANCH master
 
-RUN git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /srv/app/src/${WATCHTOWER_PATH} && \
-  cd /srv/app/src/${WATCHTOWER_PATH} && \
-  go get -u github.com/Masterminds/glide && \
-  glide install --skip-test && \
+RUN git clone -b ${WATCHTOWER_BRANCH} ${WATCHTOWER_REPO} /srv/app/watchtower && \
+  cd /srv/app/watchtower && \
   go install
 
 FROM webhippie/alpine:latest-arm64v8@sha256:2af125d3829f11d05c99396f5a29d5592f6d44fb37d9c384497fdd7beef62c5b
