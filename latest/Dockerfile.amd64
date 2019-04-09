@@ -1,4 +1,4 @@
-FROM webhippie/golang:1.12@sha256:63419800294957b105cb32e804d39d6b983f5e17eecba63dbdcef8e5b3e07eb8 as build
+FROM webhippie/golang:1.12@sha256:3834a3576de8cf82ea67b5b327c1d34c49ad5e731c21c66dac7abfa388464429 as build
 
 ENV WATCHTOWER_PATH github.com/v2tec/watchtower
 ENV WATCHTOWER_REPO https://${WATCHTOWER_PATH}.git
