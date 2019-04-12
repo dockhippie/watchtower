@@ -3,7 +3,7 @@
 [![Build Status](https://cloud.drone.io/api/badges/dockhippie/watchtower/status.svg)](https://cloud.drone.io/dockhippie/watchtower)
 [![](https://images.microbadger.com/badges/image/webhippie/watchtower.svg)](https://microbadger.com/images/webhippie/watchtower "Get your own image badge on microbadger.com")
 
-These are docker images for [Watchtower](https://github.com/v2tec/watchtower) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
+These are docker images for [Watchtower](https://github.com/containrrr/watchtower) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
 
 
 ## Versions

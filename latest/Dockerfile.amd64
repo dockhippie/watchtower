@@ -1,6 +1,6 @@
 FROM webhippie/golang:1.12 as build
 
-ENV WATCHTOWER_PATH github.com/v2tec/watchtower
+ENV WATCHTOWER_PATH github.com/containrrr/watchtower
 ENV WATCHTOWER_REPO https://${WATCHTOWER_PATH}.git
 ENV WATCHTOWER_BRANCH master
 
