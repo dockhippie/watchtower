@@ -1,0 +1,47 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>webhippie/renovate:docker",
+        "docker:pinDigests",
+        "default:automergeDigest"
+    ],
+    "ignorePaths": [
+        "archive/"
+    ],
+    "packageRules": [{
+            "description": "Update golang docker images",
+            "datasources": [
+                "docker"
+            ],
+            "updateTypes": [
+                "major",
+                "minor"
+            ],
+            "enabled": true,
+            "automerge": true
+        },
+        {
+            "description": "Update tags without merge",
+            "datasources": [
+                "github-tags"
+            ],
+            "updateTypes": [
+                "major"
+            ],
+            "enabled": true,
+            "automerge": false
+        },
+        {
+            "description": "Update tags without merge",
+            "datasources": [
+                "github-tags"
+            ],
+            "updateTypes": [
+                "minor",
+                "patch"
+            ],
+            "enabled": true,
+            "automerge": true
+        }
+    ]
+}
