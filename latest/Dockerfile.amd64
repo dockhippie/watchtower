@@ -10,7 +10,6 @@ RUN git clone -b ${WATCHTOWER_VERSION} https://github.com/containrrr/watchtower.
 FROM webhippie/alpine:latest-amd64@sha256:fe8d7dfcb47475d79ed7dc902141d8c9c5d8a0fae6f8b0c4928e5279f959d7e4
 
 WORKDIR /root
-ENTRYPOINT ["/usr/bin/entrypoint"]
 CMD ["/usr/bin/container"]
 
 RUN apk update && \
