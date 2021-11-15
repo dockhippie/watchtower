@@ -7,7 +7,7 @@ RUN git clone -b ${WATCHTOWER_VERSION} https://github.com/containrrr/watchtower.
   cd /srv/app/src && \
   GO111MODULE=on go install
 
-FROM webhippie/alpine:latest-arm64@sha256:e34484f5348a344de0e8cd2e1a6b1c561fc5f8085bc4763e6adedfdd44e3a882
+FROM webhippie/alpine:latest-arm64@sha256:68db6867a55f3796140218fdd770e926141c9f77db57edc4545f63ba29f1fe9d
 
 WORKDIR /root
 CMD ["/usr/bin/container"]
