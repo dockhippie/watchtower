@@ -1,4 +1,4 @@
-FROM webhippie/golang:1.17-amd64@sha256:6a8b992c0b945788e8249bdc3d5126aa0d48a6f1e30cacda2b927fb5967e755a as build
+FROM webhippie/golang:1.17-amd64@sha256:75328ab8e09e64049642cc92ec8ba44d1c871251488f5f6be357120e9fbad0bd as build
 
 # renovate: datasource=github-tags depName=containrrr/watchtower
 ENV WATCHTOWER_VERSION=v1.4.0
