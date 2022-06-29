@@ -8,7 +8,8 @@
     "ignorePaths": [
         "archive/"
     ],
-    "packageRules": [{
+    "packageRules": [
+        {
             "description": "Update golang docker images",
             "datasources": [
                 "docker"
