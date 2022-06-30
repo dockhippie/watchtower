@@ -1,20 +1,23 @@
 # watchtower
 
-[![Docker Build](https://github.com/dockhippie/watchtower/workflows/docker/badge.svg)](https://github.com/dockhippie/watchtower/actions?query=workflow%3Adocker) [![Readme Build](https://github.com/dockhippie/watchtower/workflows/readme/badge.svg)](https://github.com/dockhippie/watchtower/actions?query=workflow%3Areadme) [![Docker Size](https://img.shields.io/docker/image-size/webhippie/watchtower/latest)](#) [![Docker Pulls](https://img.shields.io/docker/pulls/webhippie/watchtower)](https://hub.docker.com/r/webhippie/watchtower) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/watchtower)
+[![Docker Build](https://github.com/dockhippie/watchtower/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/watchtower/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/watchtower)
 
-These are docker images for [Watchtower](https://github.com/containrrr/watchtower) running on our [Alpine Linux image](https://github.com/dockhippie/alpine).
+These are docker images for [Watchtower][upstream] running on our
+[Alpine Linux image][parent].
 
 ## Versions
 
-For the available versions please look at [Docker Hub](https://hub.docker.com/r/webhippie/watchtower/tags) or [Quay](https://quay.io/repository/webhippie/watchtower?tab=tags) or check the existing folders within the [GitHub repository](https://github.com/dockhippie/watchtower).
+For the available versions please look at [Docker Hub][dockerhub] or
+[Quay][quayio] or check the existing folders within the
+[GitHub repository][github].
 
 ## Volumes
 
-* None
+*  None
 
 ## Ports
 
-* None
+*  None
 
 ## Available environment variables
 
@@ -70,3 +73,9 @@ MIT
 ```console
 Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```
+
+[upstream]: https://github.com/containrrr/watchtower
+[parent]: https://github.com/dockhippie/alpine
+[dockerhub]: https://hub.docker.com/r/webhippie/watchtower/tags
+[quayio]: https://quay.io/repository/webhippie/watchtower?tab=tags
+[github]: https://github.com/dockhippie/watchtower
