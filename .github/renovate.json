@@ -30,7 +30,10 @@
                 "major"
             ],
             "enabled": true,
-            "automerge": false
+            "automerge": false,
+            "matchPaths": [
+                "latest/Dockerfile.*"
+            ]
         },
         {
             "description": "Update tags without merge",
@@ -42,7 +45,39 @@
                 "patch"
             ],
             "enabled": true,
-            "automerge": true
+            "automerge": true,
+            "matchPaths": [
+                "latest/Dockerfile.*"
+            ]
+        },
+        {
+            "description": "Update tags without merge",
+            "datasources": [
+                "github-tags"
+            ],
+            "updateTypes": [
+                "major",
+                "minor"
+            ],
+            "enabled": false,
+            "automerge": false,
+            "matchPaths": [
+                "v.*/Dockerfile.*"
+            ]
+        },
+        {
+            "description": "Update tags without merge",
+            "datasources": [
+                "github-tags"
+            ],
+            "updateTypes": [
+                "patch"
+            ],
+            "enabled": true,
+            "automerge": true,
+            "matchPaths": [
+                "v.*/Dockerfile.*"
+            ]
         }
     ]
 }
