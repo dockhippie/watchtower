@@ -1,13 +1,13 @@
-FROM webhippie/golang:1.19-arm64@sha256:d8cd8c3adfec473f46f9827e05039e2b9e4816828fa5c37ce67efdaef00e9232 as build
+FROM webhippie/golang:1.19-arm@sha256:4d2d11d658c5c6aad79df9b841855ef6d793307290003cfe44297e38723e6ceb as build
 
 # renovate: datasource=github-tags depName=containrrr/watchtower
-ENV WATCHTOWER_VERSION=v1.4.0
+ENV WATCHTOWER_VERSION=v1.5.3
 
 RUN git clone -b ${WATCHTOWER_VERSION} https://github.com/containrrr/watchtower.git /srv/app/src && \
   cd /srv/app/src && \
   GO111MODULE=on go install
 
-FROM webhippie/alpine:latest-arm64@sha256:5373929bfcb54907fcc97e33a5828c63774e44d52d2d1597849971a2f6366281
+FROM webhippie/alpine:latest-arm@sha256:7bc3f2e9d2cb22220591733b62396f50642c0195b67bb992c9c13282691f6bc4
 
 WORKDIR /root
 CMD ["/usr/bin/container"]
