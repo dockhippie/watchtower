@@ -1,7 +1,7 @@
 FROM webhippie/golang:1.20-amd64@sha256:a2c56d775c647c6b5cd3ad5260910f5d88869be7bdd76a5c4a9ab070c084de87 as build
 
 # renovate: datasource=github-tags depName=containrrr/watchtower
-ENV WATCHTOWER_VERSION=v1.4.0
+ENV WATCHTOWER_VERSION=v1.5.3
 
 RUN git clone -b ${WATCHTOWER_VERSION} https://github.com/containrrr/watchtower.git /srv/app/src && \
   cd /srv/app/src && \
