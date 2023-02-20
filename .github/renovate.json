@@ -33,42 +33,13 @@
                 "github-tags"
             ],
             "updateTypes": [
-                "major"
-            ],
-            "enabled": true,
-            "automerge": false,
-            "matchPaths": [
-                "latest/Dockerfile.*"
-            ]
-        },
-        {
-            "description": "Update tags without merge",
-            "datasources": [
-                "github-tags"
-            ],
-            "updateTypes": [
-                "minor",
-                "patch"
-            ],
-            "enabled": true,
-            "automerge": true,
-            "matchPaths": [
-                "latest/Dockerfile.*"
-            ]
-        },
-        {
-            "description": "Update tags without merge",
-            "datasources": [
-                "github-tags"
-            ],
-            "updateTypes": [
                 "major",
                 "minor"
             ],
             "enabled": false,
             "automerge": false,
-            "matchPaths": [
-                "v.*/Dockerfile.*"
+            "matchPackageNames": [
+                "containrrr/watchtower"
             ]
         },
         {
@@ -81,8 +52,8 @@
             ],
             "enabled": true,
             "automerge": true,
-            "matchPaths": [
-                "v.*/Dockerfile.*"
+            "matchPackageNames": [
+                "containrrr/watchtower"
             ]
         }
     ]
