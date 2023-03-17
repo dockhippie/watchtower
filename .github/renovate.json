@@ -56,5 +56,8 @@
                 "containrrr/watchtower"
             ]
         }
+    ],
+    "ignoreDeps": [
+        "docker/build-push-action"
     ]
 }
