@@ -1,0 +1,20 @@
+FROM ghcr.io/dockhippie/golang:1.23-arm64@sha256:be7696d77a4440c83a8a143c3f2511e355aed426ef2acf2b4b3b11e7767b0c2e AS build
+
+# renovate: datasource=github-tags depName=containrrr/watchtower
+ENV WATCHTOWER_VERSION=v1.7.1
+
+RUN git clone -b ${WATCHTOWER_VERSION} https://github.com/containrrr/watchtower.git /srv/app/src && \
+  cd /srv/app/src && \
+  GO111MODULE=on go install
+
+FROM ghcr.io/dockhippie/alpine:latest-arm64@sha256:d2ddc16b136cd196ae03fa554616c7ffaf49ec186d22ad68145ce124e6804669
+
+WORKDIR /root
+CMD ["/usr/bin/container"]
+
+RUN apk update && \
+  apk upgrade && \
+  rm -rf /var/cache/apk/*
+
+COPY --from=build /srv/app/bin/watchtower /usr/bin/watchtower
+COPY ./overlay /
