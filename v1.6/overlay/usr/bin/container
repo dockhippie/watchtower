@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -eo pipefail
+source /usr/bin/entrypoint
+
+pushd /root >/dev/null
+    STARTCMD="watchtower"
+
+    [[ "${WATCHTOWER_CLEANUP}" == "true" || "${WATCHTOWER_CLEANUP}" == "1" ]] && STARTCMD="${STARTCMD} --cleanup"
+    [[ "${WATCHTOWER_DEBUG}" == "true" || "${WATCHTOWER_DEBUG}" == "1" ]] && STARTCMD="${STARTCMD} --debug"
+    [[ "${WATCHTOWER_ENABLE_LIFECYCLE_HOOKS}" == "true" || "${WATCHTOWER_ENABLE_LIFECYCLE_HOOKS}" == "1" ]] && STARTCMD="${STARTCMD} --enable-lifecycle-hooks"
+    [[ -n "${WATCHTOWER_HOST}" ]] && STARTCMD="${STARTCMD} --host=${WATCHTOWER_HOST}"
+    [[ "${WATCHTOWER_HTTP_API_METRICS}" == "true" || "${WATCHTOWER_HTTP_API_METRICS}" == "1" ]] && STARTCMD="${STARTCMD} --http-api-metrics"
+    [[ "${WATCHTOWER_HTTP_API_PERIODIC_POLLS}" == "true" || "${WATCHTOWER_HTTP_API_PERIODIC_POLLS}" == "1" ]] && STARTCMD="${STARTCMD} --http-api-periodic-polls"
+    [[ -n "${WATCHTOWER_HTTP_API_TOKEN}" ]] && STARTCMD="${STARTCMD} --http-api-token=${WATCHTOWER_HTTP_API_TOKEN}"
+    [[ "${WATCHTOWER_HTTP_API_UPDATE}" == "true" || "${WATCHTOWER_HTTP_API_UPDATE}" == "1" ]] && STARTCMD="${STARTCMD} --http-api-update"
+    [[ "${WATCHTOWER_INCLUDE_RESTARTING}" == "true" || "${WATCHTOWER_INCLUDE_RESTARTING}" == "1" ]] && STARTCMD="${STARTCMD} --include-restarting"
+    [[ "${WATCHTOWER_INCLUDE_STOPPED}" == "true" || "${WATCHTOWER_INCLUDE_STOPPED}" == "1" ]] && STARTCMD="${STARTCMD} --include-stopped"
+    [[ -n "${WATCHTOWER_INTERVAL}" ]] && STARTCMD="${STARTCMD} --interval=${WATCHTOWER_INTERVAL}"
+    [[ "${WATCHTOWER_LABEL_ENABLE}" == "true" || "${WATCHTOWER_LABEL_ENABLE}" == "1" ]] && STARTCMD="${STARTCMD} --label-enable"
+    [[ "${WATCHTOWER_MONITOR_ONLY}" == "true" || "${WATCHTOWER_MONITOR_ONLY}" == "1" ]] && STARTCMD="${STARTCMD} --monitor-only"
+    [[ "${WATCHTOWER_NO_COLOR}" == "true" || "${WATCHTOWER_NO_COLOR}" == "1" ]] && STARTCMD="${STARTCMD} --no-color"
+    [[ "${WATCHTOWER_NO_PULL}" == "true" || "${WATCHTOWER_NO_PULL}" == "1" ]] && STARTCMD="${STARTCMD} --no-pull"
+    [[ "${WATCHTOWER_NO_RESTART}" == "true" || "${WATCHTOWER_NO_RESTART}" == "1" ]] && STARTCMD="${STARTCMD} --no-restart"
+    [[ "${WATCHTOWER_NO_STARTUP_MESSAGE}" == "true" || "${WATCHTOWER_NO_STARTUP_MESSAGE}" == "1" ]] && STARTCMD="${STARTCMD} --no-startup-message"
+    [[ "${WATCHTOWER_REMOVE_VOLUMES}" == "true" || "${WATCHTOWER_REMOVE_VOLUMES}" == "1" ]] && STARTCMD="${STARTCMD} --remove-volumes"
+    [[ "${WATCHTOWER_REVIVE_STOPPED}" == "true" || "${WATCHTOWER_REVIVE_STOPPED}" == "1" ]] && STARTCMD="${STARTCMD} --revive-stopped"
+    [[ "${WATCHTOWER_ROLLING_RESTART}" == "true" || "${WATCHTOWER_ROLLING_RESTART}" == "1" ]] && STARTCMD="${STARTCMD} --rolling-restart"
+    [[ "${WATCHTOWER_RUN_ONCE}" == "true" || "${WATCHTOWER_RUN_ONCE}" == "1" ]] && STARTCMD="${STARTCMD} --run-once"
+    [[ -n "${WATCHTOWER_SCHEDULE}" ]] && STARTCMD="${STARTCMD} --schedule=${WATCHTOWER_SCHEDULE}"
+    [[ -n "${WATCHTOWER_SCOPE}" ]] && STARTCMD="${STARTCMD} --scope=${WATCHTOWER_SCOPE}"
+    [[ -n "${WATCHTOWER_STOP_TIMEOUT}" ]] && STARTCMD="${STARTCMD} --stop-timeout=${WATCHTOWER_STOP_TIMEOUT}"
+    [[ "${WATCHTOWER_TLS_VERIFY}" == "true" || "${WATCHTOWER_TLS_VERIFY}" == "1" ]] && STARTCMD="${STARTCMD} --tlsverify"
+    [[ "${WATCHTOWER_TRACE}" == "true" || "${WATCHTOWER_TRACE}" == "1" ]] && STARTCMD="${STARTCMD} --trace"
+    [[ -n "${WATCHTOWER_WARN_ON_HEAD_FAILURE}" ]] && STARTCMD="${STARTCMD} --warn-on-head-failure=${WATCHTOWER_WARN_ON_HEAD_FAILURE}"
+    [[ -n "${WATCHTOWER_OPTS}" ]] && STARTCMD="${STARTCMD} ${WATCHTOWER_OPTS}"
+
+    echo "> starting watchtower service"
+    exec ${STARTCMD}
+popd >/dev/null
