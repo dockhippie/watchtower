@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/golang:1.25-arm64@sha256:7b3c7ad3d5d76f07f319d400bba7efbd1b334c12e4c32b32aa36524a6b2522e7 AS build
+FROM ghcr.io/dockhippie/golang:1.25-arm64@sha256:40fe31a300835828663986d6c63ce9565e84858097d9d9785ac80a9a7b436c8c AS build
 
 # renovate: datasource=github-tags depName=containrrr/watchtower
 ENV WATCHTOWER_VERSION=v1.6.0
@@ -7,7 +7,7 @@ RUN git clone -b ${WATCHTOWER_VERSION} https://github.com/containrrr/watchtower.
   cd /srv/app/src && \
   GO111MODULE=on go install
 
-FROM ghcr.io/dockhippie/alpine:latest-arm64@sha256:d7813fe27f3eeb726a418182751235f564ab8e965cc6e35d6f676fba29ee05bd
+FROM ghcr.io/dockhippie/alpine:latest-arm64@sha256:ec8105efc75f53f43d838c740d8cb21715abc2ad35c9eb9462c56bd67aba990b
 
 WORKDIR /root
 CMD ["/usr/bin/container"]
