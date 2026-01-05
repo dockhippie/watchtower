@@ -19,6 +19,6 @@ RUN apk update && \
 COPY --from=build /srv/app/bin/watchtower /usr/bin/watchtower
 COPY ./overlay /
 
-RUN find /etc/container.d /etc/entrypoint.d -type f -name \*.sh -exec sed -i 's/\r$//' {} +; \
+RUN find /etc/entrypoint.d -type f -name \*.sh -exec sed -i 's/\r$//' {} +; \
   sed -i 's/\r$//' /usr/bin/container && \
-  chmod +x /usr/bin/container /etc/container.d/*.sh /etc/entrypoint.d/*.sh
+  chmod +x /usr/bin/container /etc/entrypoint.d/*.sh
