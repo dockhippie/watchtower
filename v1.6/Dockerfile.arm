@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/golang:1.25-arm@sha256:33540fd004e7c60fbee3a042f995407bda361802ddd175e22a2c48b95fa3b25b AS build
+FROM ghcr.io/dockhippie/golang:1.25-arm@sha256:b7e2b3e1bacd1763c356ab1c2794d85b296f3cc766e33447ed615ff5c2a7a8b9 AS build
 
 # renovate: datasource=github-tags depName=containrrr/watchtower
 ENV WATCHTOWER_VERSION=v1.6.0
