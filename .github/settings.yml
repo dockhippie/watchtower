@@ -1,7 +1,7 @@
 ---
 repository:
   name: watchtower
-  description: Docker images for watchtower
+  description: Docker images for Watchtower
   topics: docker, image
 
   private: false
